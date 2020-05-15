@@ -1,7 +1,7 @@
 module.exports = {
   title: 'myNotebook',
   description: 'Just playing around',
-  base: '/FEnotebook',
+  base: '/FEnotebook/',
   themeConfig: {
     sidebar: [
       {
