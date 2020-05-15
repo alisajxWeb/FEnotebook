@@ -1,7 +1,0 @@
-{
-  "scripts": {
-    "docs:dev": "vuepress dev FEnotebook",
-    "docs:build": "vuepress build FEnotebook",
-    "deploy": "bash deploy.sh"
-  }
-}
