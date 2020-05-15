@@ -1,0 +1,8 @@
+{
+  "title" : "我的学习笔记",
+  "author" : "alisa",
+  "theme-default": {
+      "showLevel": true
+  },
+  "plugins": ["summary", "toggle-chapters", "theme-comscore"]
+}
