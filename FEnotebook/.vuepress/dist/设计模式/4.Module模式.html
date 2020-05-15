@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>4.Module模式 | myNotebook</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/FEnotebook/assets/css/0.styles.13c0ca14.css" as="style"><link rel="preload" href="/FEnotebook/assets/js/app.5a1ae3c7.js" as="script"><link rel="preload" href="/FEnotebook/assets/js/2.94fbeaa6.js" as="script"><link rel="preload" href="/FEnotebook/assets/js/13.fcfd7a1e.js" as="script"><link rel="prefetch" href="/FEnotebook/assets/js/10.1cb94038.js"><link rel="prefetch" href="/FEnotebook/assets/js/11.c9751ed4.js"><link rel="prefetch" href="/FEnotebook/assets/js/12.f87d9604.js"><link rel="prefetch" href="/FEnotebook/assets/js/14.99912993.js"><link rel="prefetch" href="/FEnotebook/assets/js/3.e8d65a1d.js"><link rel="prefetch" href="/FEnotebook/assets/js/4.fe5120f6.js"><link rel="prefetch" href="/FEnotebook/assets/js/5.56963043.js"><link rel="prefetch" href="/FEnotebook/assets/js/6.17e30057.js"><link rel="prefetch" href="/FEnotebook/assets/js/7.95ab6649.js"><link rel="prefetch" href="/FEnotebook/assets/js/8.15c2432f.js"><link rel="prefetch" href="/FEnotebook/assets/js/9.a9340ac3.js">
+    <link rel="stylesheet" href="/FEnotebook/assets/css/0.styles.13c0ca14.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/FEnotebook/" class="home-link router-link-active"><!----> <span class="site-name">myNotebook</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/FEnotebook/设计模式/0.导语" class="sidebar-heading clickable open"><span>设计模式</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/FEnotebook/设计模式/0.导语.html" class="sidebar-link">0.导语</a></li><li><a href="/FEnotebook/设计模式/1.定义.html" class="sidebar-link">1.定义</a></li><li><a href="/FEnotebook/设计模式/2.对象的前提知识整理.html" class="sidebar-link">2.对象定义方式与描述符关系</a></li><li><a href="/FEnotebook/设计模式/3.Constructor模式.html" class="sidebar-link">3.Constructor(构造器)模式</a></li><li><a href="/FEnotebook/设计模式/4.Module模式.html" class="active sidebar-link">4.Module模式</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="_4-module模式"><a href="#_4-module模式" class="header-anchor">#</a> 4.Module模式</h3> <p>实现模块的方法：</p> <p>​	对象字面量表示、Module模式、AMD模式、CommonJS模式、ECMAScrept模式。Module模式是基于对象字面量</p> <h5 id="一、对象字面量"><a href="#一、对象字面量" class="header-anchor">#</a> 一、对象字面量</h5> <p>​	1.是什么：区别于new一个实例化对象，是描述为一组包含在大括号“{}”中，以逗号分隔的健值对组合。</p> <p>​	2.形式：对象内名称可以是字符串或标识符，后面跟一个冒号。最后一个健值对不能加逗号，否则导致出错。</p> <p>​	3.用处：在对象外部，可直接使用赋值语句添加到对象字面量上</p> <p>​	4.优点：有助于封装和组织代码</p> <div class="language-Javascript a extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span><span class="token string">'小王'</span><span class="token punctuation">,</span>
+    age<span class="token operator">:</span><span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">sayHi</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hi'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>二、Module模式</p> <p>​	最初定义：传统软件工程中为类提供私有和公有的封装方法、</p> <p>​	js中：模拟类的概念 ，使一个单独的对象拥有公有/私有的方法和变量，从而屏蔽来自全局作用域的特殊部分</p> <p>​	结果：函数名与在页面上其他脚本定义的函数冲突的可能性降低</p> <p>​	1.私有原理：</p> <p>​		使用闭包封装成“私有”状态和组织:包装混合公有/私有方法和变量，防止泄露至全局作用域。只需返回一个公有api，其他一切都维持在私有闭包里。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> testModule <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">incrementCounter</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token operator">++</span>counter
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">resetCounter</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'counter value prior wo reset'</span> <span class="token operator">+</span> counter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 增加计数器</span>
+testModule<span class="token punctuation">.</span><span class="token function">incrementCounter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 重置计数器</span>
+testModule<span class="token punctuation">.</span><span class="token function">resetCounter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>​	在这里，代码其他部分无法直接读取incrementCounter()或resetCounter(). counter变量完全与全局作用域隔离，表现出私有变量的特征。其作用域被局限在闭包内</p> <p>​	增加公有变量则可以直接将变量写在return中</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/FEnotebook/设计模式/3.Constructor模式.html" class="prev">
+        3.Constructor(构造器)模式
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/FEnotebook/assets/js/app.5a1ae3c7.js" defer></script><script src="/FEnotebook/assets/js/2.94fbeaa6.js" defer></script><script src="/FEnotebook/assets/js/13.fcfd7a1e.js" defer></script>
+  </body>
+</html>
